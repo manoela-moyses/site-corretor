@@ -58,6 +58,7 @@
         gap: 32px;
         font-family: $font-family-body;
         font-size: 14px;
+        transition: color 0.2s ease;
 
         a {
           font-weight: 500;
@@ -101,6 +102,7 @@
       text-decoration: none;
       color: $color-text-secondary;
       white-space: nowrap;
+      transition: color 0.2s ease;
 
       i {
         display: flex;
@@ -177,6 +179,7 @@
       border: 0;
       cursor: pointer;
       color: $color-primary;
+      transition: color 0.2s ease; 
 
       i {
         font-size: 28px;
