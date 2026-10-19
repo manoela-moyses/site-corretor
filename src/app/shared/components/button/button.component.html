@@ -1,0 +1,9 @@
+
+<a
+  class="app-button"
+  [class.app-button--primary]="variant() === 'primary'"
+  [class.app-button--ghost]="variant() === 'ghost'"
+  [routerLink]="link()"
+>
+  {{ label() }}
+</a>

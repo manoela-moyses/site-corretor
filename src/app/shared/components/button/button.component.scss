@@ -1,0 +1,42 @@
+@use "../../../../styles/variables" as *;
+
+.app-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family-body;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.app-button--primary {
+  height: 36px;
+  padding: 0 16px;
+
+  background-color: $color-secondary;
+  color: $color-primary;
+  border: 1px solid $color-secondary;
+
+  &:hover {
+    background-color: $color-secondary-hover;
+    border-color: $color-secondary-hover;
+  }
+}
+
+.app-button--ghost {
+  height: 36px;
+  padding: 0 16px;
+
+  background-color: transparent;
+  color: $color-text-secondary;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: $color-border;
+  }
+}

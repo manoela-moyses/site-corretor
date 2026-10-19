@@ -1,3 +1,72 @@
-<header>
-  
+<header class="site-header">
+  <div class="header-container">
+
+    <div class="header-left">
+      <!-- Logotipo -->
+      <a class="header-brand" routerLink="/" aria-label="Alexandre Moyses - Página inicial">
+        <span class="brand-icon" aria-hidden="true"><i class="bi bi-buildings"></i></span>
+        <span class="brand-name">ALEXANDRE MOYSES</span>
+      </a>
+
+      <!-- Menu de navegação -->
+      <div class="menu-panel" [class.is-open]="isMenuOpen()">
+        <nav class="header-nav" aria-label="Navegação principal">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            Início
+          </a>
+          <a routerLink="/imoveis" routerLinkActive="active">
+            Imóveis
+          </a>
+          <a routerLink="/destaques" routerLinkActive="active">
+            Destaques
+          </a>
+          <a routerLink="/sobre" routerLinkActive="active">
+            Sobre
+          </a>
+          <a routerLink="/contato" routerLinkActive="active">
+            Contato
+          </a>
+        </nav>
+
+        <div class="header-actions mobile-actions">
+          <!-- WhatsApp -->
+          <a class="header-whatsapp" href="https://wa.me/5551999999999" target="_blank" rel="noopener noreferrer"
+            aria-label="Entrar em contato pelo WhatsApp">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            <span>(51) 99999-9999</span>
+          </a>
+
+          <!-- Quero vender -->
+          <app-button label="Quero vender" variant="primary" link="/contato" />
+
+          <!-- Login -->
+          <app-button label="Login" variant="ghost" link="/login" />
+        </div>
+      </div>
+    </div>
+
+    <button class="menu-toggle" [class.is-open]="isMenuOpen()" type="button" [attr.aria-label]="isMenuOpen() ? 'Fechar menu' : 'Abrir menu'"
+      [attr.aria-expanded]="isMenuOpen()" (click)="toggleMenu()">
+      <i class="bi bi-list" aria-hidden="true"></i>
+    </button>
+
+    <!-- Ações -->
+    <div class="header-actions">
+
+      <!-- WhatsApp -->
+      <a class="header-whatsapp" href="https://wa.me/5551999999999" target="_blank" rel="noopener noreferrer"
+        aria-label="Entrar em contato pelo WhatsApp">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        <span>(51) 99999-9999</span>
+      </a>
+
+      <!-- Quero vender -->
+      <app-button label="Quero vender" variant="primary" link="/contato" />
+
+      <!-- Login -->
+      <app-button label="Login" variant="ghost" link="/login" />
+
+    </div>
+
+  </div>
 </header>
