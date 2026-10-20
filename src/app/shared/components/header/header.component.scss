@@ -129,7 +129,7 @@
         z-index: 1000;
         border-top: 1px solid $color-border;
         border-radius: 0 0 6px 6px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         nav {
           padding: 16px 20px 0 20px;
 
@@ -159,10 +159,10 @@
           padding: 16px 0;
           border-top: 1px solid $color-border;
           margin: 8px 20px 0 20px;
-          
-          a, app-button {
+
+          a,
+          app-button {
             padding: 8px 16px;
-            
           }
         }
       }
@@ -179,7 +179,7 @@
       border: 0;
       cursor: pointer;
       color: $color-primary;
-      transition: color 0.2s ease; 
+      transition: color 0.2s ease;
 
       i {
         font-size: 28px;
@@ -196,6 +196,50 @@
 
     .header-actions {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    .header-container {
+      padding: 0 20px;
+
+      .header-left {
+        .header-nav {
+          a {
+            padding: 8px 0;
+          }
+        }
+      }
+
+      .menu-panel {
+        .mobile-actions {
+          margin: 0;
+
+          a,
+          app-button {
+            padding: 8px 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 356px) {
+  .site-header {
+    .header-container {
+      .header-left {
+        .header-brand {
+          font-size: 18px;
+        }
+      }
+    }
+    .menu-toggle {
+      i {
+        font-size: 18px;
+      }
     }
   }
 }

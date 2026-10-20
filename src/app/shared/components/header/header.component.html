@@ -45,9 +45,10 @@
       </div>
     </div>
 
-    <button class="menu-toggle" [class.is-open]="isMenuOpen()" type="button" [attr.aria-label]="isMenuOpen() ? 'Fechar menu' : 'Abrir menu'"
-      [attr.aria-expanded]="isMenuOpen()" (click)="toggleMenu()">
-      <i class="bi bi-list" aria-hidden="true"></i>
+    <button class="menu-toggle" [class.is-open]="isMenuOpen()" type="button"
+      [attr.aria-label]="isMenuOpen() ? 'Fechar menu' : 'Abrir menu'" [attr.aria-expanded]="isMenuOpen()"
+      (click)="toggleMenu()">
+      <i [class]="isMenuOpen() ? 'bi bi-x-lg' : 'bi bi-list'" aria-hidden="true"></i>
     </button>
 
     <!-- Ações -->
