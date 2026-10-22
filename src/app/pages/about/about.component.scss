@@ -1,0 +1,383 @@
+@use "../../../styles/variables" as *;
+
+.about-hero {
+  background-color: $color-background-soft;
+  border-bottom: 1px solid $color-border;
+  .about-hero-container {
+    max-width: 706px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 64px 32px;
+
+    .about-hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: $color-secondary;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 60px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: $color-primary;
+    }
+
+    p {
+      line-height: 26px;
+      margin-bottom: 0;
+      color: $color-text-secondary;
+    }
+  }
+}
+
+.about-journey {
+  .about-journey-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    .about-journey-image {
+      flex: 0 0 410px;
+      figure {
+        img {
+          width: 100%;
+          height: 512px;
+          object-fit: cover;
+          border-radius: 6px;
+        }
+      }
+
+      figcaption {
+        font-family: $font-family-heading;
+        font-size: 18px;
+        font-weight: 600;
+        color: $color-primary;
+      }
+    }
+
+    .about-journey-content {
+      h2 {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 36px;
+        margin-bottom: 20px;
+        color: $color-primary;
+      }
+
+      .about-journey-description {
+        line-height: 28px;
+        color: $color-text-secondary;
+      }
+
+      .about-journey-stats {
+        max-width: 501px;
+        display: flex;
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .about-journey-stat {
+        display: flex;
+        flex: 1 1 0;
+        min-width: 0;
+        box-sizing: border-box;
+        gap: 4px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        background-color: $color-text-light;
+        border-radius: 6px;
+        border: 1px solid $color-border;
+        padding: 16px;
+
+        strong {
+          font-family: $font-family-heading;
+          font-size: 20px;
+          line-height: 32px;
+          font-weight: 700;
+          color: $color-secondary;
+        }
+
+        span {
+          font-size: 14px;
+          line-height: 22.75px;
+          color: $color-text-secondary;
+        }
+      }
+    }
+  }
+}
+
+.about-values {
+  background-color: $color-background-soft;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+  text-align: center;
+
+  .about-values-container {
+    padding: 80px 0;
+    max-width: 960px;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 36px;
+      color: $color-primary;
+    }
+
+    p {
+      margin-bottom: 36px;
+      font-size: 14px;
+      line-height: 26px;
+      color: $color-text-secondary;
+    }
+
+    .about-values-cards {
+      display: flex;
+      gap: 16px;
+
+      .about-values-card {
+        background-color: $color-text-light;
+        border: 1px solid $color-border;
+        border-radius: 6px;
+        padding: 24px;
+        text-align: start;
+        flex: 1 1 0;
+        min-width: 0;
+        box-sizing: border-box;
+
+        i,
+        span {
+          font-size: 28px;
+          color: $color-secondary;
+          margin-bottom: 20px;
+        }
+
+        h3 {
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 28px;
+          color: $color-primary;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 22.75px;
+          color: $color-text-secondary;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.about-cta {
+  text-align: center;
+
+  .about-cta-container {
+    padding: 80px 0;
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 36px;
+      color: $color-primary;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 26px;
+      color: $color-text-secondary;
+      margin-bottom: 32px;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .about-journey {
+    .about-journey-container {
+      padding: 80px 32px;
+      gap: 40px;
+
+      .about-journey-image {
+        flex: 1;
+        min-width: 0;
+        figure {
+          img {
+            width: 100%;
+          }
+        }
+
+        figcaption {
+          font-size: 14px;
+        }
+      }
+
+      .about-journey-content {
+        flex: 1;
+        min-width: 0;
+
+        .about-journey-stats {
+          .about-journey-stat {
+            strong {
+              font-size: 14px;
+              line-height: 22.75px;
+            }
+
+            span {
+              font-size: 12px;
+              line-height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .about-values {
+    .about-values-container {
+      padding: 80px 32px;
+      .about-values-cards {
+        flex-wrap: wrap;
+        gap: 16px;
+
+        .about-values-card {
+          width: auto;
+          flex: 0 0 calc(50% - 8px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .about-hero .about-hero-container,
+  .about-journey .about-journey-container,
+  .about-values .about-values-container,
+  .about-cta .about-cta-container {
+    padding: 56px 20px;
+  }
+
+  .about-journey {
+    .about-journey-container {
+      .about-journey-image {
+        figure {
+          img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center 30%;
+          }
+        }
+
+        figcaption {
+          font-size: 18px;
+        }
+      }
+
+      .about-journey-content {
+        .about-journey-stats {
+          max-width: none;
+          width: 100%;
+
+          .about-journey-stat {
+            strong {
+              font-size: 20px;
+              line-height: 32px;
+            }
+
+            span {
+              font-size: 14px;
+              line-height: 22.75px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .about-journey {
+    .about-journey-container {
+      flex-direction: column;
+
+      .about-journey-image {
+        flex: none;
+        width: 100%;
+      }
+
+      .about-journey-content {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .about-hero {
+    .about-hero-container {
+      h1 {
+        font-size: 36px;
+        line-height: 45px;
+      }
+    }
+  }
+
+  .about-journey .about-journey-container .about-journey-content,
+  .about-values .about-values-container,
+  .about-cta .about-cta-container {
+    h2 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  .about-journey {
+    .about-journey-container {
+      .about-journey-image {
+        figcaption {
+          font-size: 14px;
+        }
+      }
+
+      .about-journey-content {
+        .about-journey-description {
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .about-values {
+    .about-values-container {
+      .about-values-cards {
+        flex-direction: column;
+
+        .about-values-card {
+          flex: 0 0 auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 437px) {
+  .about-journey {
+    .about-journey-container {
+      .about-journey-content {
+        .about-journey-stats {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}

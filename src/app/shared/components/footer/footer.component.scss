@@ -132,7 +132,7 @@
             font-size: 14px;
             color: $color-footer-text;
 
-            &:hover {
+            &:hover, &.active {
               color: $color-secondary;
             }
           }
@@ -143,7 +143,7 @@
 
   .footer-bottom {
     width: 100%;
-    border-top: 1px solid $color-border;
+    border-top: 1px solid $color-border-footer;
     margin-top: 56px;
 
     .footer-bottom-content {

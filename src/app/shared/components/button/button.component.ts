@@ -1,4 +1,3 @@
-
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -11,6 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class ButtonComponent {
   label = input.required<string>();
-  variant = input<'primary' | 'ghost'>('primary');
+  variant = input.required<'primary' | 'ghost'>();
   link = input.required<string>();
+  showIcon = input<boolean>(false);
 }

@@ -1,9 +1,29 @@
+@if (link().startsWith('http')) {
+  <a
+    class="app-button"
+    [class.app-button--primary]="variant() === 'primary'"
+    [class.app-button--ghost]="variant() === 'ghost'"
+    [href]="link()"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {{ label() }}
 
-<a
-  class="app-button"
-  [class.app-button--primary]="variant() === 'primary'"
-  [class.app-button--ghost]="variant() === 'ghost'"
-  [routerLink]="link()"
->
-  {{ label() }}
-</a>
+    @if (showIcon()) {
+      <i class="bi bi-arrow-right" aria-hidden="true"></i>
+    }
+  </a>
+} @else {
+  <a
+    class="app-button"
+    [class.app-button--primary]="variant() === 'primary'"
+    [class.app-button--ghost]="variant() === 'ghost'"
+    [routerLink]="link()"
+  >
+    {{ label() }}
+
+    @if (showIcon()) {
+      <i class="bi bi-arrow-right" aria-hidden="true"></i>
+    }
+  </a>
+}
