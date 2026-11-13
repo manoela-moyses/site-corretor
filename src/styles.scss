@@ -1,3 +1,14 @@
 @use "styles/base";
 
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+i[class*="bi-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  &::before {
+    line-height: 1;
+  }
+}

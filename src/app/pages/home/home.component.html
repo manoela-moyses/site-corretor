@@ -1,1 +1,331 @@
-<p>home works!</p>
+<main class="home">
+  <!-- Banner principal -->
+  <section class="home-hero">
+    <div class="home-hero-content">
+      <h1>
+        Encontre o imóvel certo para
+        o seu próximo capítulo.
+      </h1>
+
+      <p>
+        Imóveis selecionados em Porto Alegre e Região
+        Metropolitana, com atendimento próximo e transparente.
+      </p>
+
+      <form class="home-search" (ngSubmit)="searchProperties()">
+        <div class="home-search-field">
+          <i class="bi bi-geo-alt" aria-hidden="true"></i>
+          <input type="text" name="heroSearchLocation" [(ngModel)]="heroSearchLocation"
+            [attr.placeholder]="isMobile420 ? 'Bairro, cidade ou código' : 'Digite o bairro, cidade ou código'" aria-label="Localização do imóvel" />
+        </div>
+
+        <button type="submit" class="btn-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          Buscar imóveis
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Imóveis em destaque -->
+  <section class="featured-properties" id="destaques">
+    <div class="container">
+      <span class="section-label">SELEÇÃO ESPECIAL</span>
+      <h2>Imóveis em destaque</h2>
+
+      <div class="featured-properties-grid">
+        @for (property of featuredProperties; track property.id) {
+        <a class="featured-property-card" [routerLink]="['/imoveis', property.id]">
+          <img [src]="property.image" [alt]="property.title" />
+
+          <div class="featured-property-info">
+            <h3>{{ property.title }}</h3>
+            <p>{{ property.neighborhood }}, {{ property.location }}</p>
+            <strong>
+              {{ property.price | currency:'BRL' }}
+            </strong>
+          </div>
+        </a>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Imóveis disponíveis -->
+  <section class="available-properties" id="imoveis">
+    <div class="container">
+      <div class="properties-heading">
+        <div>
+          <h2>Imóveis disponíveis</h2>
+          <p>Use os filtros para refinar sua busca</p>
+        </div>
+
+        <span class="properties-count">
+          {{ totalProperties }}
+          {{ totalProperties === 1 ? 'imóvel encontrado' : 'imóveis encontrados' }}
+        </span>
+      </div>
+
+      <!-- Filtros -->
+
+      <form class="property-filters">
+
+        <div class="filter-field">
+          <label id="property-type-label">
+            Tipo de imóvel
+          </label>
+
+          <div class="custom-select">
+            <button type="button" class="custom-select-trigger" aria-labelledby="property-type-label"
+              aria-haspopup="listbox" [attr.aria-expanded]="propertyTypeOpen"
+              (click)="propertyTypeOpen = !propertyTypeOpen" (keydown.escape)="propertyTypeOpen = false">
+              <span>{{ selectedPropertyTypeLabel }}</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+
+            @if (propertyTypeOpen) {
+            <div class="custom-select-options" role="listbox" aria-labelledby="property-type-label">
+              @for (option of propertyTypeOptions; track option.value) {
+              <button type="button" role="option" class="custom-select-option"
+                [class.selected]="selectedPropertyType === option.value"
+                [attr.aria-selected]="selectedPropertyType === option.value" (click)="selectPropertyType(option.value)">
+                <span>{{ option.label }}</span>
+
+                @if (selectedPropertyType === option.value) {
+                <i class="bi bi-check" aria-hidden="true"></i>
+                }
+              </button>
+              }
+            </div>
+            }
+          </div>
+        </div>
+
+
+        <div class="filter-field">
+          <label for="property-location">Localização ou código</label>
+          <input id="property-location" name="propertyLocation" type="text" [(ngModel)]="propertyLocation"
+            (ngModelChange)="currentPage = 1" placeholder="Bairro, cidade ou código" />
+        </div>
+
+
+        <div class="filter-field">
+          <label id="property-city-label">
+            Cidade
+          </label>
+
+          <div class="custom-select">
+            <button type="button" class="custom-select-trigger" aria-labelledby="property-city-label"
+              aria-haspopup="listbox" [attr.aria-expanded]="propertyCityOpen"
+              (click)="propertyCityOpen = !propertyCityOpen" (keydown.escape)="propertyCityOpen = false">
+              <span>{{ selectedPropertyCityLabel }}</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+
+            @if (propertyCityOpen) {
+            <div class="custom-select-options" role="listbox" aria-labelledby="property-city-label">
+
+              @for (option of propertyCityOptions; track option.value) {
+              <button type="button" role="option" class="custom-select-option"
+                [class.selected]="selectedPropertyCity === option.value"
+                [attr.aria-selected]="selectedPropertyCity === option.value" (click)="selectPropertyCity(option.value)">
+
+                <span>{{ option.label }}</span>
+
+                @if (selectedPropertyCity === option.value) {
+                <i class="bi bi-check" aria-hidden="true"></i>
+                }
+              </button>
+              }
+            </div>
+            }
+          </div>
+        </div>
+
+
+
+        <div class="filter-field">
+          <label id="property-bedrooms-label">
+            Dormitórios
+          </label>
+
+          <div class="custom-select">
+            <button type="button" class="custom-select-trigger" aria-labelledby="property-bedrooms-label"
+              aria-haspopup="listbox" [attr.aria-expanded]="propertyBedroomsOpen"
+              (click)="propertyBedroomsOpen = !propertyBedroomsOpen" (keydown.escape)="propertyBedroomsOpen = false">
+
+              <span>{{ selectedPropertyBedroomsLabel }}</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+
+            @if (propertyBedroomsOpen) {
+            <div class="custom-select-options" role="listbox" aria-labelledby="property-bedrooms-label">
+
+              @for (option of propertyBedroomsOptions; track option.value) {
+              <button type="button" role="option" class="custom-select-option"
+                [class.selected]="selectedPropertyBedrooms === option.value"
+                [attr.aria-selected]="selectedPropertyBedrooms === option.value"
+                (click)="selectPropertyBedrooms(option.value)">
+
+                <span>{{ option.label }}</span>
+
+                @if (selectedPropertyBedrooms === option.value) {
+                <i class="bi bi-check" aria-hidden="true"></i>
+                }
+              </button>
+              }
+            </div>
+            }
+          </div>
+        </div>
+
+
+        <div class="filter-field">
+          <label id="property-parking-label">
+            Vagas
+          </label>
+
+          <div class="custom-select">
+            <button type="button" class="custom-select-trigger" aria-labelledby="property-parking-label"
+              aria-haspopup="listbox" [attr.aria-expanded]="propertyParkingOpen"
+              (click)="propertyParkingOpen = !propertyParkingOpen" (keydown.escape)="propertyParkingOpen = false">
+
+              <span>{{ selectedPropertyParkingLabel }}</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+
+            @if (propertyParkingOpen) {
+            <div class="custom-select-options" role="listbox" aria-labelledby="property-parking-label">
+
+              @for (option of propertyParkingOptions; track option.value) {
+              <button type="button" role="option" class="custom-select-option"
+                [class.selected]="selectedPropertyParking === option.value"
+                [attr.aria-selected]="selectedPropertyParking === option.value"
+                (click)="selectPropertyParking(option.value)">
+
+                <span>{{ option.label }}</span>
+
+                @if (selectedPropertyParking === option.value) {
+                <i class="bi bi-check" aria-hidden="true"></i>
+                }
+              </button>
+              }
+            </div>
+            }
+          </div>
+        </div>
+
+
+        <div class="filter-field">
+          <label for="property-price">Preço máx. (R$)</label>
+          <input id="property-price" name="maxPrice" type="number" min="0" [(ngModel)]="propertyMaxPrice"
+            (ngModelChange)="currentPage = 1" placeholder="R$" />
+        </div>
+
+        <button type="button" class="clear-filters-button" (click)="clearFilters()">
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+          <span>Limpar</span>
+        </button>
+
+        <button type="button" class="btn-more-filters">
+          <i class="bi bi-sliders2"></i>
+          Mais filtros
+        </button>
+
+      </form>
+
+
+      <!-- Cards dos imóveis -->
+      <div class="properties-grid">
+        @for (property of paginatedProperties; track property.id) {
+        <article class="property-card">
+          <div class="property-card-image">
+            <img [src]="property.image" [alt]="property.title" />
+
+            <div class="property-badges">
+              <span class="badge-type">
+                {{ property.type }}
+              </span>
+
+              @if (property.featured) {
+              <span class="badge-featured">
+                Destaque
+              </span>
+              }
+            </div>
+          </div>
+
+          <div class="property-card-content">
+            <h3>{{ property.title }}</h3>
+            <p class="property-location">
+              <i class="bi bi-geo-alt" aria-hidden="true"></i>
+              {{ property.neighborhood }}, {{ property.location }}
+            </p>
+
+            <div class="property-features">
+              <span>
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  bed
+                </span>
+                {{ property.bedrooms }} dorm.
+              </span>
+
+              <span>
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  bathtub
+                </span>
+                {{ property.bathrooms }} banh.
+              </span>
+
+              <span>
+                <i class="bi bi-car-front" aria-hidden="true"></i>
+                {{ property.parking }} vagas
+              </span>
+
+              <span>
+                <i class="bi bi-square" aria-hidden="true"></i>
+                {{ property.area }}m²
+              </span>
+            </div>
+
+            <strong class="property-price">
+              {{ property.price | currency:'BRL' }}
+            </strong>
+
+            <app-button label="Ver detalhes" variant="ghost" [link]="'/imoveis/' + property.id" [showIcon]="true"
+              [height]="36" padding="8px 0" [fontWeight]="600" color="var(--color-primary)" />
+          </div>
+        </article>
+        }
+      </div>
+
+      @if (totalProperties === 0) {
+      <p class="no-properties">
+        Nenhum imóvel encontrado para os filtros selecionados.
+      </p>
+      }
+
+      <!-- Paginação -->
+      @if (totalPages > 1) {
+      <nav class="properties-pagination" aria-label="Paginação de imóveis">
+        <button type="button" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)"
+          aria-label="Página anterior">
+          ‹
+        </button>
+
+        @for (page of pages; track page) {
+        <button type="button" [class.active]="currentPage === page"
+          [attr.aria-current]="currentPage === page ? 'page' : null" (click)="changePage(page)">
+          {{ page }}
+        </button>
+        }
+
+        <button type="button" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)"
+          aria-label="Próxima página">
+          ›
+        </button>
+      </nav>
+      }
+    </div>
+  </section>
+</main>

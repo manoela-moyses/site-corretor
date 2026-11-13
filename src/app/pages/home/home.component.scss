@@ -1,0 +1,970 @@
+@use "../../../styles/variables" as *;
+
+// HOME
+
+.home {
+  color: $color-primary;
+  font-family: $font-family-body;
+  padding: 0 32px;
+
+  h1,
+  h2,
+  h3 {
+    font-family: $font-family-heading;
+  }
+
+  button,
+  input,
+  select {
+    font-family: $font-family-body;
+  }
+}
+
+.container {
+  margin: 0 auto;
+}
+
+// BANNER PRINCIPAL
+
+.home-hero {
+  max-width: 1200px;
+  margin: 16px auto;
+  box-sizing: border-box;
+  min-height: 600px;
+  padding: 48px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-radius: 6px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba($color-primary, 0.45) 0%,
+      rgba($color-primary, 0.45) 100%
+    ),
+    url("/assets/images/home-hero.webp") center/ cover no-repeat;
+}
+
+.home-hero-content {
+  width: 100%;
+  max-width: 672px;
+  min-height: 278px;
+  padding: 32px;
+  background: $color-text-light;
+  border-radius: 6px;
+
+  h1 {
+    width: 80%;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  p {
+    width: 80%;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.home-search {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.home-search-field {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+
+  i {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: $color-text-secondary;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    padding-left: 44px;
+    border: 1px solid $color-border;
+    border-radius: 6px;
+    background: $color-white;
+    color: $color-text-secondary;
+    font-size: 14px;
+    font-weight: 500;
+
+    &::placeholder {
+      color: $color-text-secondary;
+    }
+
+    &:focus {
+      outline: 1px solid $color-secondary;
+      border-color: $color-secondary;
+      padding-left: 16px;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+
+  &:focus-within {
+    i {
+      opacity: 0;
+    }
+  }
+}
+
+.btn-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 30px;
+  border: 0;
+  border-radius: 6px;
+  background: $color-secondary;
+  color: $color-primary;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background: $color-secondary-hover;
+  }
+
+  i {
+    font-size: 16px;
+  }
+}
+
+/* ========================================
+   MENSAGEM - NENHUM IMÓVEL ENCONTRADO
+   ======================================== */
+
+.no-properties {
+  text-align: center;
+  color: $color-text-secondary;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+// IMÓVEIS EM DESTAQUE
+
+.featured-properties {
+  padding: 80px 0;
+  background: $color-primary;
+  color: $color-white;
+  margin-inline: -32px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .section-label {
+    display: block;
+    margin-bottom: 8px;
+    color: $color-secondary;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+  }
+
+  h2 {
+    margin-bottom: 32px;
+    font-size: 36px;
+    font-weight: 600;
+  }
+}
+
+.featured-properties-grid {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+
+  > * {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.featured-property-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 12px;
+  border-radius: 6px;
+  background: $color-text-light;
+  color: $color-primary;
+  text-decoration: none;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+}
+
+.featured-property-info {
+  min-width: 0;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 2px;
+  }
+
+  p {
+    margin-bottom: 4px;
+    color: $color-text-secondary;
+    font-size: 12px;
+  }
+
+  strong {
+    font-family: $font-family-heading;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+}
+
+// IMÓVEIS DISPONÍVEIS
+
+.available-properties {
+  padding: 80px 0 80px;
+  background: $color-white;
+
+  .container {
+    max-width: 1200px;
+    padding: 0;
+  }
+}
+
+.properties-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+
+  h2 {
+    margin-bottom: 8px;
+    font-size: 36px;
+    font-weight: 600;
+  }
+
+  p,
+  .properties-count {
+    margin: 0;
+    color: $color-text-secondary;
+    font-size: 14px;
+  }
+}
+
+// FILTROS
+
+.property-filters {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 36px;
+  padding: 16px;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  flex-wrap: wrap;
+
+  .select-wrapper {
+    position: relative;
+    width: 100%;
+
+    select {
+      appearance: none;
+      width: 100%;
+      padding-right: 36px;
+      background-image: none;
+    }
+
+    i {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      font-size: 14px;
+    }
+  }
+
+  .custom-select {
+    position: relative;
+    width: 100%;
+
+    &-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+
+      width: 100%;
+      min-width: 0;
+      height: 44px;
+      padding: 0 12px;
+
+      border: 1px solid $color-border;
+      border-radius: 6px;
+      background: $color-text-light;
+      color: $color-text-secondary;
+
+      font-family: $font-family-body;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: left;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      &::placeholder {
+        color: $color-text-secondary;
+      }
+
+      &:focus {
+        outline: 1px solid $color-secondary;
+        border-color: $color-secondary;
+      }
+
+      &:focus::placeholder {
+        color: transparent;
+      }
+
+      i {
+        flex-shrink: 0;
+        font-size: 16px;
+      }
+    }
+
+    &-options {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      width: 100%;
+      padding: 2px;
+
+      background: $color-text-light;
+      border: 1px solid $color-border;
+      border-radius: 6px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    &-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+
+      width: 100%;
+      height: 30px;
+      padding: 8px 10px;
+
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: $color-text-secondary;
+
+      font-family: $font-family-body;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+
+      &:hover,
+      &.selected {
+        background: $color-secondary;
+      }
+
+      i {
+        flex-shrink: 0;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .clear-filters-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    height: 44px;
+    padding: 14px 16px;
+
+    border: 1px solid $color-border;
+    border-radius: 6px;
+
+    background-color: $color-text-light;
+    color: $color-primary;
+
+    font-family: $font-family-body;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    i {
+      font-size: 16px;
+    }
+
+    &:hover {
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-secondary;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  min-width: 0;
+  gap: 8px;
+  box-sizing: border-box;
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  input,
+  select {
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid $color-border;
+    border-radius: 6px;
+    background: $color-text-light;
+    color: $color-text-secondary;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: $color-text-secondary;
+    }
+
+    &:focus {
+      outline: 1px solid $color-secondary;
+      border-color: $color-secondary;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+}
+
+.property-filters > .filter-field:nth-child(1) {
+  flex: 0 0 160px;
+}
+
+.property-filters > .filter-field:nth-child(2) {
+  flex: 0 0 200px;
+}
+
+.property-filters > .filter-field:nth-child(3) {
+  flex: 0 0 150px;
+}
+
+.property-filters > .filter-field:nth-child(4) {
+  flex: 0 0 130px;
+}
+
+.property-filters > .filter-field:nth-child(5) {
+  flex: 0 0 120px;
+}
+
+.property-filters > .filter-field:nth-child(6) {
+  flex: 0 0 150px;
+}
+
+.btn-more-filters {
+  height: 36px;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: $color-primary;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+
+  i {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background-color: $color-border;
+  }
+}
+
+// CARDS DOS IMÓVEIS
+
+.properties-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  width: 100%;
+  min-width: 0;
+}
+
+.property-card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 calc((100% - 64px) / 3);
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  background: $color-text-light;
+  box-sizing: border-box;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+
+    .property-card-image img {
+      transform: scale(1.05);
+    }
+  }
+
+  .property-card-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 6px;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  .property-badges {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    span {
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .badge-type {
+      background: $color-secondary;
+      color: $color-primary;
+    }
+
+    .badge-featured {
+      background: $color-text-light;
+      color: $color-primary;
+    }
+  }
+
+  .property-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 16px;
+
+    h3 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+  }
+
+  .property-location {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 0 12px;
+    color: $color-text-secondary;
+    font-size: 14px;
+
+    i {
+      font-size: 14px;
+    }
+  }
+
+  .property-features {
+    display: flex;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: $color-text-secondary;
+      font-size: 12px;
+
+      i,
+      .material-symbols-outlined {
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .property-price {
+    display: block;
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: $font-family-heading;
+    line-height: 24px;
+  }
+}
+
+// PAGINAÇÃO
+
+.properties-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 48px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid $color-border;
+    border-radius: 5px;
+    background: $color-text-light;
+    color: $color-primary;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      outline: 1px solid $color-secondary;
+      border-color: $color-secondary;
+    }
+
+    &.active {
+      background: $color-primary;
+      border-color: $color-primary;
+      color: $color-text-light;
+    }
+
+    &:disabled {
+      color: $color-border;
+      cursor: not-allowed;
+      border: 1px solid $color-border;
+      outline: none;
+    }
+  }
+}
+
+// RESPONSIVIDADE INICIAL
+
+@media (max-width: 1199px) {
+  .home {
+    .home-hero {
+      max-width: 960px;
+    }
+  }
+
+  .property-filters {
+    .custom-select-option {
+      font-size: 12px;
+    }
+
+    .clear-filters-button {
+      height: 36px;
+      font-size: 12px;
+    }
+
+    .btn-more-filters {
+      font-size: 12px;
+    }
+  }
+
+  .property-filters .custom-select-trigger,
+  .property-filters .filter-field input {
+    font-size: 12px;
+    height: 36px;
+  }
+
+  .property-filters > .filter-field:nth-child(2) {
+    flex: 0 0 172px;
+  }
+
+  .property-filters > .filter-field:nth-child(4) {
+    flex: 0 0 120px;
+  }
+
+  .property-filters > .filter-field:nth-child(5) {
+    flex: 0 0 110px;
+  }
+
+  .property-filters > .filter-field:nth-child(-n + 6) {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 1023px) {
+  .property-filters {
+    .filter-field:nth-child(-n + 6) {
+      flex: 0 0 calc((100% - 24px) / 3);
+      max-width: calc((100% - 24px) / 3);
+      min-width: 0;
+      box-sizing: border-box;
+    }
+  }
+
+  .properties-grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    .property-card {
+      flex: 0 0 calc((100% - 32px) / 2);
+      box-sizing: border-box;
+    }
+  }
+}
+
+@media (max-width: 793px) {
+  .featured-property-card {
+    gap: 8px;
+    h3 {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .home {
+    padding: 0 20px;
+
+    .home-hero {
+      padding: 16px;
+      justify-content: center;
+
+      .home-hero-content {
+        padding: 20px;
+
+        h1 {
+          font-size: 30px;
+        }
+      }
+    }
+
+    .featured-properties {
+      margin-inline: -20px;
+      padding: 64px 0;
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .container {
+        padding-inline: 20px;
+
+        .featured-properties-grid {
+          flex-direction: column;
+
+          .featured-property-card {
+            gap: 16px;
+
+            h3 {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    .available-properties {
+      padding: 64px 0;
+
+      .properties-heading {
+        h2 {
+          font-size: 30px;
+        }
+      }
+
+      .properties-grid {
+        .property-card {
+          flex: 0 0 100%;
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
+        }
+      }
+
+      .property-card-content {
+        position: relative;
+
+        h3 {
+          padding-right: 150px;
+        }
+
+        .property-price {
+          position: absolute;
+          top: 16px;
+          right: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .home {
+    .home-hero {
+      .home-hero-content {
+        h1,
+        p {
+          width: 100%;
+        }
+
+        .home-search {
+          flex-direction: column;
+
+          .btn-search {
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .property-filters {
+      .filter-field:nth-child(-n + 6) {
+        flex: 0 0 calc((100% - 12px) / 2);
+        max-width: calc((100% - 12px) / 2);
+        min-width: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    .properties-heading {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .property-filters {
+      .filter-field:nth-child(-n + 6) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .home {
+    .home-hero {
+      .home-hero-content {
+        h1 {
+          font-size: 26px;
+        }
+        p {
+          font-size: 12px;
+        }
+
+        .home-search {
+          .home-search-field {
+            input {
+              font-size: 12px;
+
+              &::placeholder {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .featured-properties,
+    .available-properties .properties-heading {
+      h2 {
+        font-size: 26px;
+      }
+    }
+
+    .available-properties {
+      .property-card-content {
+        h3 {
+          padding-right: 0;
+        }
+
+        .property-price {
+          position: static;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

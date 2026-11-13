@@ -1,0 +1,375 @@
+@use "../../../styles/variables" as *;
+
+// ========================================
+// PÁGINA DE POLÍTICA DE PRIVACIDADE
+// ========================================
+
+.privacy-policy {
+  background-color: $color-background-soft;
+  color: $color-text-secondary;
+  padding: 64px 32px;
+}
+
+// ========================================
+// APRESENTAÇÃO
+// ========================================
+
+.privacy-hero {
+  .privacy-hero-container {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+
+    h1 {
+      margin-bottom: 40px;
+      font-size: 36px;
+      font-weight: 600;
+      color: $color-primary;
+    }
+  }
+}
+
+// ========================================
+// CONTEÚDO
+// ========================================
+
+.privacy-content {
+  .privacy-container {
+    max-width: 960px;
+    margin: 0 auto;
+
+    > p {
+      font-size: 14px;
+      line-height: 28px;
+      font-weight: 400;
+      margin-bottom: 28px;
+    }
+
+    .privacy-updated {
+      margin-bottom: 12px;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 600;
+    }
+  }
+}
+
+// ========================================
+// SEÇÕES DA POLÍTICA
+// ========================================
+
+.privacy-section {
+  margin-top: 28px;
+
+  h2 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  h4 {
+    margin: 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .privacy-rights-intro {
+    margin-bottom: 0;
+  }
+
+  ul {
+    padding-left: 20px;
+
+    li {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 28px;
+    }
+  }
+
+  a {
+    color: $color-primary;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+// ========================================
+// TABELA DE TECNOLOGIAS
+// ========================================
+
+.privacy-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 20px;
+
+  th,
+  td {
+    padding: 16px;
+    border: 1px solid $color-border;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: $color-background-subtle;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  td {
+    line-height: 22.75px;
+  }
+
+  th:first-child,
+  td:first-child {
+    width: 30.8%;
+  }
+}
+
+// ========================================
+// SOLICITAÇÕES DE PRIVACIDADE
+// ========================================
+
+.privacy-requests {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid $color-border;
+}
+
+// ========================================
+// ABAS
+// ========================================
+
+.privacy-request-tabs {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 20px;
+  background-color: $color-background-subtle;
+  height: 52px;
+  border-radius: 6px;
+
+  .privacy-request-tab {
+    flex: 1;
+    min-width: 0;
+    height: 52px;
+    padding: 18px 0;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+    color: $color-primary;
+    font-family: $font-family-body;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $color-secondary-hover;
+    }
+
+    &.active {
+      background-color: $color-secondary;
+    }
+  }
+}
+
+// ========================================
+// PAINEL DA ABA SELECIONADA
+// ========================================
+
+.privacy-request-panel {
+  h2 {
+    margin-bottom: 12px;
+    padding: 16px 20px;
+    background-color: $color-primary;
+    color: $color-text-light;
+    font-size: 18px;
+    font-weight: 600;
+    height: 52px;
+  }
+
+  > p {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 28px;
+  }
+}
+
+// ========================================
+// FORMULÁRIO DE SOLICITAÇÃO
+// ========================================
+
+.privacy-request-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+
+  .privacy-request-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: $color-primary;
+    }
+
+    input {
+      width: 100%;
+      height: 44px;
+      padding: 12px 20px;
+      border: 1px solid $color-border;
+      border-radius: 6px;
+      background-color: transparent;
+      font-size: 14px;
+      font-weight: 500;
+      color: $color-text-secondary;
+
+      &::placeholder {
+        color: $color-text-secondary;
+      }
+
+      &:focus {
+        outline: 1px solid $color-secondary;
+        border-color: $color-secondary;
+      }
+
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
+  }
+
+  .privacy-request-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 36px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: $color-secondary;
+    color: $color-primary;
+    font-family: $font-family-body;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $color-secondary-hover;
+    }
+  }
+}
+
+// ========================================
+// RESPONSIVIDADE
+// ========================================
+
+@media (max-width: 767px) {
+  .privacy-policy {
+    padding: 64px 20px;
+  }
+
+  .privacy-request-tabs {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 4px;
+
+    .privacy-request-tab {
+      flex: 0 0 calc(50% - 2px);
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .privacy-hero {
+    .privacy-hero-container {
+      h1 {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 356px) {
+  .privacy-hero {
+    .privacy-hero-container {
+      h1 {
+        font-size: 26px;
+      }
+    }
+  }
+
+  .privacy-section {
+    h2, h4 {
+      font-size: 14px;
+    }
+
+    h3 {
+      font-size: 16px;
+    }
+  }
+
+  .privacy-table {
+    th,
+    td {
+      padding: 10px;
+      font-size: 12px;
+    }
+  }
+
+  .privacy-request-tabs {
+    .privacy-request-tab {
+      height: 44px;
+      padding: 4px 0px;
+    }
+  }
+
+  .privacy-request-panel {
+    h2 {
+      padding: 16px 12px;
+      font-size: 16px;
+    }
+  }
+}

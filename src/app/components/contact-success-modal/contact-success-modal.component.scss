@@ -1,0 +1,65 @@
+@use "../../../styles/variables" as *;
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color-primary, 0.5);
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 446px;
+  padding: 32px;
+  border-radius: 6px;
+  background-color: $color-white;
+  text-align: center;
+
+  .modal-icon {
+    background-color: rgba($color-secondary-hover, 0.2);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    i {
+      font-size: 36px;
+      color: $color-secondary;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    color: $color-primary;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22.75px;
+    color: $color-text-secondary;
+    margin-bottom: 24px;
+  }
+
+  .modal-actions {
+    display: flex;
+
+    app-button {
+      display: block;
+      width: 100%;
+    }
+  }
+}

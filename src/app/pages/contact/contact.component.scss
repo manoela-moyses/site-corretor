@@ -1,0 +1,339 @@
+@use "../../../styles/variables" as *;
+
+.contact-hero {
+  background-color: $color-background-soft;
+  border-bottom: 1px solid $color-border;
+  padding: 64px 32px;
+
+  .contact-hero-container {
+    max-width: 706px;
+    margin: 0 auto;
+    text-align: center;
+
+    .contact-hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: $color-secondary;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 60px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: $color-primary;
+    }
+
+    p {
+      line-height: 26px;
+      margin-bottom: 0;
+      color: $color-text-secondary;
+    }
+  }
+}
+
+// ========================================
+// CONTEÚDO DE CONTATO
+// ========================================
+
+.contact-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 56px 32px;
+
+  .contact-container {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+
+    > .contact-form,
+    > .contact-sidebar {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    > .contact-form {
+      flex-basis: calc(50% - 12px);
+    }
+
+    > .contact-sidebar {
+      flex-basis: calc(50% - 12px);
+    }
+  }
+}
+
+// ========================================
+// CARTÕES
+// ========================================
+
+.contact-card {
+  padding: 32px;
+  background-color: $color-text-light;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  box-sizing: border-box;
+
+  h2 {
+    margin-bottom: 24px;
+    color: $color-primary;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+}
+
+// ========================================
+// COLUNA LATERAL
+// ========================================
+
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+// ========================================
+// FORMULÁRIO DE CONTATO
+// ========================================
+
+.contact-form {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-family: $font-family-body;
+      font-size: 12px;
+      font-weight: 500;
+      color: $color-text-secondary;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      height: 44px;
+      padding: 8px 12px;
+      border: 1px solid $color-border;
+      border-radius: 6px;
+      background-color: $color-white;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: $color-text-secondary;
+
+      &::placeholder {
+        color: $color-text-secondary;
+      }
+
+      &:focus {
+        outline: 1px solid $color-secondary;
+        border-color: $color-secondary;
+      }
+
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
+
+    textarea {
+      resize: none;
+      min-height: 128px;
+    }
+  }
+
+  .contact-submit {
+    margin-top: 4px;
+    width: 100%;
+    height: 44px;
+    border: none;
+    border-radius: 6px;
+    background-color: $color-secondary;
+    color: $color-primary;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      background-color: $color-secondary-hover;
+    }
+  }
+}
+
+// ========================================
+// CANAIS DIRETOS
+// ========================================
+
+.contact-channels {
+  .contact-channel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 6px;
+      background-color: rgba($color-secondary-hover, 0.2);
+
+      i {
+        font-size: 20px;
+        color: $color-secondary;
+      }
+    }
+
+    div {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .contact-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: $color-text-secondary;
+      }
+
+      a,
+      p {
+        font-size: 14px;
+        font-weight: 500;
+        color: $color-text-secondary;
+        text-decoration: none;
+        overflow-wrap: break-word;
+        margin-bottom: 0px;
+      }
+
+      a {
+        &:hover {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+}
+
+// ========================================
+// REDES SOCIAIS
+// ========================================
+
+.contact-social {
+  p {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 20px;
+    color: $color-text-secondary;
+  }
+
+  .contact-social-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    width: 188px;
+
+    .contact-social-icon {
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid $color-border;
+      border-radius: 6px;
+
+      i {
+        font-size: 16px;
+        color: $color-primary;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16px;
+      color: $color-text-secondary;
+    }
+
+    &:hover {
+      .contact-social-icon {
+        border-color: $color-secondary;
+      }
+
+      > span:last-child {
+        color: $color-secondary;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-content {
+    .contact-container {
+      flex-direction: column;
+
+      > .contact-form,
+      > .contact-sidebar {
+        flex: none;
+        width: 100%;
+      }
+
+      .contact-form {
+        .contact-field {
+          textarea {
+            resize: vertical;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 639px) {
+  .contact-hero {
+    .contact-hero-container {
+      h1 {
+        font-size: 36px;
+        line-height: 45px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-channels {
+    .contact-channel {
+      div {
+        a,
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

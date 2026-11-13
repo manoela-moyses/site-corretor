@@ -1,29 +1,61 @@
-@if (link().startsWith('http')) {
-  <a
-    class="app-button"
-    [class.app-button--primary]="variant() === 'primary'"
-    [class.app-button--ghost]="variant() === 'ghost'"
-    [href]="link()"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    {{ label() }}
 
-    @if (showIcon()) {
-      <i class="bi bi-arrow-right" aria-hidden="true"></i>
-    }
-  </a>
+@if (link()) {
+  @if (link().startsWith('http')) {
+    <!-- Link externo -->
+    <a
+      class="app-button"
+      [class.app-button--primary]="variant() === 'primary'"
+      [class.app-button--ghost]="variant() === 'ghost'"
+      [class.app-button--full-width]="fullWidth()"
+      [style.height.px]="height()"
+      [style.padding]="padding()"
+      [style.font-weight]="fontWeight()"
+      [href]="link()"
+      [style.color]="color()"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {{ label() }}
+      @if (showIcon()) {
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      }
+    </a>
+  } @else {
+    <!-- Link interno -->
+    <a
+      class="app-button"
+      [class.app-button--primary]="variant() === 'primary'"
+      [class.app-button--ghost]="variant() === 'ghost'"
+      [class.app-button--full-width]="fullWidth()"
+      [style.height.px]="height()"
+      [style.padding]="padding()"
+      [style.font-weight]="fontWeight()"
+      [routerLink]="link()"
+      [style.color]="color()"
+    >
+      {{ label() }}
+      @if (showIcon()) {
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      }
+    </a>
+  }
 } @else {
-  <a
+  <!-- Botão de ação -->
+  <button
+    type="button"
     class="app-button"
     [class.app-button--primary]="variant() === 'primary'"
     [class.app-button--ghost]="variant() === 'ghost'"
-    [routerLink]="link()"
+    [class.app-button--full-width]="fullWidth()"
+    [style.height.px]="height()"
+    [style.padding]="padding()"
+    [style.font-weight]="fontWeight()"
+    (click)="onClick()"
+    [style.color]="color()"
   >
     {{ label() }}
-
     @if (showIcon()) {
       <i class="bi bi-arrow-right" aria-hidden="true"></i>
     }
-  </a>
+  </button>
 }

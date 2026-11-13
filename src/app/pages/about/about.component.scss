@@ -3,6 +3,7 @@
 .about-hero {
   background-color: $color-background-soft;
   border-bottom: 1px solid $color-border;
+
   .about-hero-container {
     max-width: 706px;
     margin: 0 auto;
@@ -157,7 +158,9 @@
         span {
           font-size: 28px;
           color: $color-secondary;
-          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
         }
 
         h3 {
@@ -165,6 +168,7 @@
           font-weight: 600;
           line-height: 28px;
           color: $color-primary;
+          margin-top: 20px;
         }
 
         p {
@@ -324,6 +328,10 @@
       h1 {
         font-size: 36px;
         line-height: 45px;
+      }
+
+      > p:last-child {
+        font-size: 14px;
       }
     }
   }

@@ -1,1 +1,149 @@
-<p>contact works!</p>
+<main class="contact">
+
+  <!-- Apresentação -->
+  <section class="contact-hero">
+    <div class="contact-hero-container">
+      <span class="contact-hero-eyebrow">CONTATO</span>
+
+      <h1>Vamos conversar</h1>
+
+      <p>
+        Tem dúvidas ou quer agendar uma visita? Preencha o formulário
+        ou use um dos meus canais diretos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo -->
+  <section class="contact-content">
+    <div class="contact-container contact-grid">
+
+      <!-- Formulário -->
+      <div class="contact-card contact-form">
+        <h2>Envie sua mensagem</h2>
+
+        <form #contactForm="ngForm" #formElement (ngSubmit)="onSubmit(contactForm, formElement)"
+          class="contact-form-container" ngNativeValidate>
+          <input type="hidden" name="apiKey" value="sf_9e7fa1e9618e772254a601cf" />
+          <input type="hidden" name="subject" value="Novo contato pelo site | Alexandre Moysés" />
+
+          <div class="contact-field">
+            <label for="name">Nome *</label>
+            <input id="name" name="name" type="text" placeholder="Seu nome" autocomplete="name" required ngModel />
+          </div>
+
+          <div class="contact-field">
+            <label for="email">E-mail *</label>
+            <input id="email" name="email" type="email" placeholder="voce@email.com" autocomplete="email" required
+              ngModel />
+          </div>
+
+          <div class="contact-field">
+            <label for="phone">Telefone</label>
+            <input id="phone" name="phone" type="tel" placeholder="(51) 99999-9999" autocomplete="tel" ngModel />
+          </div>
+
+          <div class="contact-field">
+            <label for="message">Mensagem *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Como posso ajudar?" required ngModel></textarea>
+          </div>
+
+          <button type="submit" class="contact-submit">
+            {{ isSubmitting ? 'Enviando...' : 'Enviar mensagem' }}
+          </button>
+        </form>
+
+        @if (isModalOpen) {
+        <app-contact-success-modal (closed)="closeModal(contactForm)" />
+        }
+      </div>
+
+      <!-- Informações de contato -->
+      <div class="contact-sidebar">
+
+        <!-- Canais diretos -->
+        <section class="contact-card contact-channels">
+          <h2>Canais diretos</h2>
+
+          <div class="contact-channel">
+            <span class="contact-icon" aria-hidden="true">
+              <i class="bi bi-whatsapp"></i>
+            </span>
+
+            <div>
+              <span class="contact-label">WhatsApp</span>
+              <a href="https://wa.me/5551981125084" target="_blank" rel="noopener noreferrer">
+                (51) 98112-5084
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-channel">
+            <span class="contact-icon" aria-hidden="true">
+              <i class="bi bi-telephone"></i>
+            </span>
+
+            <div>
+              <span class="contact-label">Telefone</span>
+              <p>
+                (51) 3332-4844
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-channel">
+            <span class="contact-icon" aria-hidden="true">
+              <i class="bi bi-envelope"></i>
+            </span>
+
+            <div>
+              <span class="contact-label">E-mail</span>
+              <a href="mailto:alexandremoyses15@gmail.com">
+                contato@alexandremoyses.com.br
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-channel">
+            <span class="contact-icon" aria-hidden="true">
+              <i class="bi bi-clock"></i>
+            </span>
+
+            <div>
+              <span class="contact-label">Atendimento</span>
+              <p>Segunda a sábado, das 9h às 18h</p>
+            </div>
+          </div>
+
+          <div class="contact-channel">
+            <span class="contact-icon" aria-hidden="true">
+              <i class="bi bi-geo-alt"></i>
+            </span>
+
+            <div>
+              <span class="contact-label">Endereço</span>
+              <p>Av. Plínio Brasil Milano, 143 / conj. 403</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Redes sociais -->
+        <section class="contact-card contact-social">
+          <h2>Redes sociais</h2>
+
+          <p>Acompanhe os lançamentos e as dicas.</p>
+
+          <a class="contact-social-item" href="https://www.instagram.com/alexandre.moyses/" target="_blank" rel="noopener noreferrer">
+            <span class="contact-social-icon" aria-hidden="true">
+              <i class="bi bi-instagram"></i>
+            </span>
+
+            <span>@alexandre.moyses</span>
+          </a>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+</main>
